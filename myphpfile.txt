@@ -1,0 +1,28 @@
+<?php
+
+$filePath = 'trishagalope.txt';
+
+
+if (file_exists($filePath)) {
+    echo "File exists! \n";
+
+    
+    $fileContents = file_get_contents($filePath);
+    echo "File contents: \n" . $fileContents . "\n";
+
+    
+    $fileLines = file($filePath);
+    echo "File lines: \n";
+    foreach ($fileLines as $line) {
+        echo $line . "\n";
+    }
+
+    
+    $newContent = "This is new content added to the file.\n";
+    file_put_contents($filePath, $newContent, FILE_APPEND);
+    echo "New content added to the file.\n";
+} else {
+    echo "File does not exist! \n";
+}
+
+?>
